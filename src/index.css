@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-flash-black bg-white antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-flash-yellow text-flash-black font-semibold rounded-full transition-all duration-300 hover:bg-flash-yellow-dark hover:scale-105 hover:shadow-lg active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-flash-black text-flash-black font-semibold rounded-full transition-all duration-300 hover:bg-flash-black hover:text-flash-yellow hover:scale-105 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-flash-yellow text-flash-black font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-display font-bold text-flash-black text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-gray-600 text-lg md:text-xl text-center max-w-2xl mx-auto mb-12;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-flash-yellow/10 via-white to-flash-yellow/5;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-flash-black to-gray-700 bg-clip-text text-transparent;
+  }
+}
+
+/* AOS custom animations */
+[data-aos="fade-up"] {
+  transform: translateY(30px);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos="fade-up"].aos-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFC107;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E6A800;
+}
+
+/* Loading animation */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: #FFC107;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

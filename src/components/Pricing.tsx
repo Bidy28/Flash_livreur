@@ -1,24 +1,26 @@
 import { motion } from 'framer-motion';
-import { Check, Zap, Crown, Star } from 'lucide-react';
+import { Check, Zap, Crown, Star, X } from 'lucide-react';
 
 const plans = [
-  // {
-  //   name: 'Services',
-  //   price: '2',
-  //   icon: Zap,
-  //   color: 'border-gray-200',
-  //   headerBg: 'bg-gray-50',
-  //   features: [
-  //     'Livraison en 1-2 heures',
-  //     'Suivi en temps réel',
-  //     'Assurance incluse',
-  //     'Support par email',
-  //     'Paiement à la livraison',
-  //   ],
-  //   popular: false,
-  // },
   {
-    name: 'Frais de livraison',
+    name: 'LITE',
+    price: '3000',
+    icon: Zap,
+    color: 'border-gray-200',
+    headerBg: 'bg-gray-50',
+    features: [
+      'Frais de recupération plafonné à 6 000 Ar',
+      'Livraison en 1-2 heures',
+      'Suivi en temps réel',
+      'Assurance incluse',
+      // 'Support par email',
+      // 'Paiement à la livraison',
+      'Livraison en byciclette',
+    ],
+    popular: false,
+  },
+  {
+    name: 'CLASSIQUE',
     price: '2500',
     icon: Star,
     color: 'border-flash-yellow',
@@ -26,24 +28,29 @@ const plans = [
     features: [
       // 'Livraison en 30-45 min',
       'Suivi en temps réel',
-      // 'Assurance premium',
-      'Plafonné à 6 000 Ar',
-      'Paiement flexible',
-      'Notification SMS',
+      'Frais de recupération plafonné à 4 000ar',
+      // 'Plafonné à 6 000 Ar',
+      // 'Paiement flexible',
+      // 'Notification SMS',
+      'Disponible en ville uniquement',
+      'Livraison en byciclette ou transport commun',
+      'Livraison repas indisponible',
     ],
-    popular: false,
+    popular: true,
   },
   {
-    name: 'Frais de récupération',
-    price: '1000',
+    name: 'PREMIUM',
+    price: '7000',
     icon: Crown,
     color: 'border-gray-200',
     headerBg: 'bg-gray-50',
     features: [
+      'Frais de recupération plafonné à 7 000 Ar',
       'Assurance totale',
-      'Support dédié 24/6',
-      'Livraison programmée',
-      'Partenaire dédié',
+      'Livraison en 30-45 min',
+      'Peut transporter des objets lourds plus de 40kg',
+      // 'Partenaire dédié',
+      'Livraison en voiture ou moto',
     ],
     popular: false,
   },
@@ -159,7 +166,9 @@ export default function Pricing() {
               {/* Features */}
               <div className="p-8">
                 <ul className="space-y-4">
-                  {plan.features.map((feature, idx) => (
+                  {plan.features.map((feature, idx) => {
+                    const isUnavailable = feature.toLowerCase().includes('indisponible') || feature.toLowerCase().includes('indisponible');
+                    return (
                     <motion.li
                       key={idx}
                       initial={{ opacity: 0, x: -10 }}
@@ -169,19 +178,26 @@ export default function Pricing() {
                       className="flex items-center gap-3"
                     >
                       <div className={`w-5 h-5 rounded-full ${
-                        plan.popular
+                        isUnavailable
+                          ? 'bg-red-100'
+                          : plan.popular
                           ? 'bg-flash-yellow/20'
                           : 'bg-gray-100'
                       } flex items-center justify-center flex-shrink-0`}>
-                        <Check className={`w-3 h-3 ${
-                          plan.popular
-                            ? 'text-flash-yellow-dark'
-                            : 'text-gray-500'
-                        }`} />
+                        {isUnavailable ? (
+                          <X className="w-3 h-3 text-red-500" />
+                        ) : (
+                          <Check className={`w-3 h-3 ${
+                            plan.popular
+                              ? 'text-flash-yellow-dark'
+                              : 'text-gray-500'
+                          }`} />
+                        )}
                       </div>
-                      <span className="text-gray-600 text-sm">{feature}</span>
+                      <span className={`text-sm ${isUnavailable ? 'text-red-600 line-through' : 'text-gray-600'}`}>{feature}</span>
                     </motion.li>
-                  ))}
+                    );
+                  })}
                 </ul>
 
                 {/* CTA Button */}

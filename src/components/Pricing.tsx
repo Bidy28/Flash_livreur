@@ -27,7 +27,7 @@ const plans = [
       // 'Livraison en 30-45 min',
       'Suivi en temps réel',
       // 'Assurance premium',
-      'Support prioritaire',
+      'Plafonné à 6 000 Ar',
       'Paiement flexible',
       'Notification SMS',
     ],

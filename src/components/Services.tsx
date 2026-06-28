@@ -5,7 +5,7 @@ const services = [
   {
     icon: Zap,
     title: 'Livraison Express',
-    description: 'Livraison ultra rapide pour vos colis urgents. Nous livrons en moins de 30 minutes.',
+    description: 'Livraison ultra rapide pour vos colis urgents. Nous livrons en moins de 60 minutes.',
     color: 'bg-yellow-100',
     iconColor: 'text-flash-yellow-dark',
   },
@@ -26,7 +26,7 @@ const services = [
   {
     icon: ShoppingCart,
     title: 'Courses',
-    description: 'Nous faisons vos courses à votre place et vous les livrons où vous voulez.',
+    description: 'Nous faisons vos courses à votre place et nous les livrons où vous voulez.',
     color: 'bg-green-100',
     iconColor: 'text-green-600',
   },

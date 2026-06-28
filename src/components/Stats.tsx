@@ -20,13 +20,13 @@ const stats = [
   {
     icon: Clock,
     value: 24,
-    suffix: '/7',
+    suffix: '/6',
     label: 'Disponibilité',
     color: 'from-blue-400 to-blue-600',
   },
   {
     icon: Timer,
-    value: 30,
+    value: 90,
     suffix: ' min',
     label: 'Temps moyen',
     color: 'from-purple-400 to-purple-600',

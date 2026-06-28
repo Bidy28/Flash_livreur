@@ -41,7 +41,7 @@ const plans = [
     headerBg: 'bg-gray-50',
     features: [
       'Assurance totale',
-      'Support dédié 24/7',
+      'Support dédié 24/6',
       'Livraison programmée',
       'Partenaire dédié',
     ],

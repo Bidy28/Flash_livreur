@@ -8,7 +8,7 @@ const reasons = [
     description: 'Livraison express',
     color: 'from-flash-yellow to-flash-yellow-dark',
     bgColor: 'bg-yellow-50',
-    details: 'Vos colis livrés en moins de 30 minutes dans toute la ville.',
+    details: 'Vos colis livrés en moins de 60 minutes dans toute la ville.',
   },
   {
     icon: Package,
@@ -24,7 +24,7 @@ const reasons = [
     description: 'Service flexible',
     color: 'from-blue-500 to-blue-600',
     bgColor: 'bg-blue-50',
-    details: 'Disponibles 7j/7 de 8h à 22h pour répondre à vos besoins.',
+    details: 'Disponibles 6j/7 de 8h à 19h pour répondre à vos besoins.',
   },
   {
     icon: Star,
@@ -141,7 +141,7 @@ export default function WhyUs() {
           <div className="inline-flex items-center gap-4 bg-flash-yellow/10 rounded-full px-8 py-4">
             <Zap className="w-6 h-6 text-flash-yellow-dark" />
             <span className="text-flash-black font-medium">
-              Rejoignez plus de 5000 clients satisfaits
+              Rejoignez plus de 100 clients satisfaits
             </span>
           </div>
         </motion.div>

@@ -24,11 +24,24 @@ export default function Navbar() {
   }, []);
 
   const scrollTo = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    const element = document.querySelector<HTMLElement>(href);
+    if (!element) {
+      setIsOpen(false);
+      return;
     }
+
     setIsOpen(false);
+
+    window.requestAnimationFrame(() => {
+      const navHeight = 80;
+      const targetTop =
+        element.getBoundingClientRect().top + window.scrollY - navHeight;
+
+      window.scrollTo({
+        top: Math.max(targetTop, 0),
+        behavior: 'smooth',
+      });
+    });
   };
 
   return (

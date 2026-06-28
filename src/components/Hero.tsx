@@ -88,7 +88,7 @@ export default function Hero() {
             >
               <Zap className="w-4 h-4 text-flash-yellow-dark" />
               <span className="text-sm font-medium text-flash-black">
-                Livraison express disponible 24/7
+                Livraison express disponible 24/6
               </span>
             </motion.div>
 
@@ -161,9 +161,9 @@ export default function Hero() {
               className="mt-12 flex flex-wrap gap-6 sm:gap-10 justify-center lg:justify-start"
             >
               {[
-                { icon: Truck, label: '5000+ Livraisons' },
+                { icon: Truck, label: '100+ Livraisons' },
                 { icon: ShieldCheck, label: 'Colis sécurisés' },
-                { icon: Clock, label: 'Disponible 24/7' },
+                { icon: Clock, label: 'Disponible 24/6' },
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <div className="w-10 h-10 bg-flash-yellow/20 rounded-full flex items-center justify-center">
@@ -224,7 +224,7 @@ export default function Hero() {
                   <div className="w-8 h-8 bg-flash-yellow/20 rounded-full flex items-center justify-center">
                     <Clock className="w-4 h-4 text-flash-yellow-dark" />
                   </div>
-                  <span className="text-sm font-medium">30 min</span>
+                  <span className="text-sm font-medium">60 min</span>
                 </motion.div>
 
                 <motion.div

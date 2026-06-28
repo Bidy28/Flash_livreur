@@ -35,7 +35,7 @@ const plans = [
     buttonClass: 'bg-flash-yellow text-flash-black hover:bg-flash-yellow-dark hover:shadow-lg',
     features: [
       'Frais de recupération plafonné à 6 000 Ar',
-      'Livraison en 1-2 heures',
+      'Durée de livraison 1-2 heures',
       'Suivi en temps réel',
       'Assurance incluse',
       // 'Support par email',
@@ -56,7 +56,7 @@ const plans = [
     features: [
       'Frais de recupération plafonné à 7 000 Ar',
       'Assurance totale',
-      'Livraison en 30-45 min',
+      'Durée de livraison 30-45 min',
       'Peut transporter des objets lourds plus de 40kg',
       // 'Partenaire dédié',
       'Livraison en moto',
@@ -168,7 +168,9 @@ export default function Pricing() {
               <div className="p-8">
                 <ul className="space-y-4">
                   {plan.features.map((feature, idx) => {
-                    const isUnavailable = feature.toLowerCase().includes('indisponible') || feature.toLowerCase().includes('indisponible');
+                    const lowerFeature = feature.toLowerCase();
+                    const isUnavailable = lowerFeature.includes('indisponible');
+                    const isDelivery = lowerFeature.startsWith('livraison en');
                     return (
                     <motion.li
                       key={idx}
@@ -181,6 +183,8 @@ export default function Pricing() {
                       <div className={`w-5 h-5 rounded-full ${
                         isUnavailable
                           ? 'bg-red-100'
+                          : isDelivery
+                          ? 'bg-blue-100'
                           : plan.popular
                           ? 'bg-flash-yellow/20'
                           : 'bg-gray-100'
@@ -189,13 +193,15 @@ export default function Pricing() {
                           <X className="w-3 h-3 text-red-500" />
                         ) : (
                           <Check className={`w-3 h-3 ${
-                            plan.popular
+                            isDelivery
+                              ? 'text-blue-600'
+                              : plan.popular
                               ? 'text-flash-yellow-dark'
                               : 'text-gray-500'
                           }`} />
                         )}
                       </div>
-                      <span className={`text-sm ${isUnavailable ? 'text-red-600 line-through' : 'text-gray-600'}`}>{feature}</span>
+                      <span className={`text-sm ${isUnavailable ? 'text-red-600 line-through' : isDelivery ? 'text-blue-600' : 'text-gray-600'}`}>{feature}</span>
                     </motion.li>
                     );
                   })}

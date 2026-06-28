@@ -3,11 +3,36 @@ import { Check, Zap, Crown, Star, X } from 'lucide-react';
 
 const plans = [
   {
+    name: 'CLASSIQUE',
+    price: '2500',
+    icon: Star,
+    color: 'border-blue-100',
+    headerBg: 'bg-gradient-to-br from-blue-100 to-blue-50',
+    iconBg: 'bg-blue-100 shadow-lg shadow-blue-200/30',
+    iconText: 'text-blue-600',
+    buttonClass: 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg',
+    features: [
+      // 'Livraison en 30-45 min',
+      'Suivi en temps réel',
+      'Frais de recupération plafonné à 4 000ar',
+      // 'Plafonné à 6 000 Ar',
+      // 'Paiement flexible',
+      // 'Notification SMS',
+      'Disponible en ville uniquement',
+      'Livraison repas indisponible',
+      'Livraison en transport commun',
+    ],
+    popular: false,
+  },
+  {
     name: 'LITE',
     price: '3000',
     icon: Zap,
-    color: 'border-gray-200',
-    headerBg: 'bg-gray-50',
+    color: 'border-flash-yellow',
+    headerBg: 'bg-gradient-to-br from-flash-yellow/20 to-flash-yellow/5',
+    iconBg: 'bg-flash-yellow shadow-lg shadow-flash-yellow/30',
+    iconText: 'text-flash-black',
+    buttonClass: 'bg-flash-yellow text-flash-black hover:bg-flash-yellow-dark hover:shadow-lg',
     features: [
       'Frais de recupération plafonné à 6 000 Ar',
       'Livraison en 1-2 heures',
@@ -17,40 +42,24 @@ const plans = [
       // 'Paiement à la livraison',
       'Livraison en byciclette',
     ],
-    popular: false,
-  },
-  {
-    name: 'CLASSIQUE',
-    price: '2500',
-    icon: Star,
-    color: 'border-flash-yellow',
-    headerBg: 'bg-gradient-to-br from-flash-yellow/20 to-flash-yellow/5',
-    features: [
-      // 'Livraison en 30-45 min',
-      'Suivi en temps réel',
-      'Frais de recupération plafonné à 4 000ar',
-      // 'Plafonné à 6 000 Ar',
-      // 'Paiement flexible',
-      // 'Notification SMS',
-      'Disponible en ville uniquement',
-      'Livraison en byciclette ou transport commun',
-      'Livraison repas indisponible',
-    ],
     popular: true,
   },
   {
     name: 'PREMIUM',
     price: '7000',
     icon: Crown,
-    color: 'border-gray-200',
-    headerBg: 'bg-gray-50',
+    color: 'border-purple-200',
+    headerBg: 'bg-gradient-to-br from-purple-100 to-purple-50',
+    iconBg: 'bg-purple-100 shadow-lg shadow-purple-200/30',
+    iconText: 'text-purple-600',
+    buttonClass: 'bg-purple-600 text-white hover:bg-purple-700 hover:shadow-lg',
     features: [
       'Frais de recupération plafonné à 7 000 Ar',
       'Assurance totale',
       'Livraison en 30-45 min',
       'Peut transporter des objets lourds plus de 40kg',
       // 'Partenaire dédié',
-      'Livraison en voiture ou moto',
+      'Livraison en moto',
     ],
     popular: false,
   },
@@ -135,22 +144,14 @@ export default function Pricing() {
                 </div>
               )}
 
-              {/* Header */}
+              {/* Card Header */}
               <div className={`${plan.headerBg} p-8 text-center`}>
                 <motion.div
-                  className={`w-16 h-16 mx-auto mb-4 rounded-2xl ${
-                    plan.popular
-                      ? 'bg-flash-yellow shadow-lg shadow-flash-yellow/30'
-                      : 'bg-gray-100'
-                  } flex items-center justify-center`}
+                  className={`w-16 h-16 rounded-2xl mx-auto mb-6 ${plan.iconBg} flex items-center justify-center`}
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <plan.icon
-                    className={`w-8 h-8 ${
-                      plan.popular ? 'text-flash-black' : 'text-gray-600'
-                    }`}
-                  />
+                  <plan.icon className={`w-8 h-8 ${plan.iconText}`} />
                 </motion.div>
                 <h3 className="text-2xl font-bold text-flash-black mb-2">
                   {plan.name}
@@ -208,7 +209,7 @@ export default function Pricing() {
                   className={`w-full mt-8 py-4 rounded-xl font-semibold transition-all duration-300 ${
                     plan.popular
                       ? 'bg-flash-yellow text-flash-black hover:bg-flash-yellow-dark hover:shadow-lg'
-                      : 'bg-gray-100 text-flash-black hover:bg-gray-200'
+                      : 'bg-blue-100 text-flash-black hover:bg-gray-200'
                   }`}
                 >
                   Commander
